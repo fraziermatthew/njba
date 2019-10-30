@@ -1,0 +1,217 @@
+/*NAVIGATION*/
+.navigation {
+    margin-bottom: 10px;
+}
+.navbar {
+    font-size: 14px;
+    background-color: black;
+}
+.navbar-nav a {
+    font-family: 'Raleway', sans-serif;
+    color: white !important;
+
+}
+.navbar-nav a:hover {
+    font-family: 'Raleway', sans-serif;
+    color: gainsboro !important;
+    border-bottom: 2px solid indianred;
+}
+.nav-item {
+    padding-right: 10px;
+    padding-left:  10px;
+}
+.navbar-brand {
+    font-family: 'Raleway', sans-serif !important;
+    color: indianred !important;
+}
+body {
+    background-color: lightgrey !important;
+    /*background-image: url('../images/ball-basketball-basketball-court-1752757.jpg');*/
+    /*width: 100%;*/
+}
+#content {
+    background-color: white !important;
+    max-height: 6000px;
+    /*margin-bottom: 10px;*/
+    padding-bottom: 50px;
+    /*margin-top: 25px;*/
+}
+.container {
+    max-width: 1350px;
+    margin-top: 10px;
+}
+footer {
+
+}
+#navbarNavLeft {
+    padding-left: 150px;
+}
+#navbarNavRight {
+    padding-right: 150px;
+}
+.banner_ad728x90 {
+    width: 728px;
+    height: 90px;
+    background: #428bca;
+    color: #fff;
+    line-height: 90px;
+    text-align: center;
+}
+.banner_ad300x250 {
+    width: 300px;
+    height: 250px;
+    background: #428bca;
+    color: #fff;
+    line-height:250px;
+    text-align: center;
+}
+.banner_ad300x600 {
+    width: 300px;
+    height: 600px;
+    background: #428bca;
+    color: #fff;
+    line-height:600px;
+    text-align: center;
+}
+.ad {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+footer {
+    margin: 0px;
+    font-family: 'Raleway', sans-serif;
+    background-color: black !important;
+    color: white !important;
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height: 100px;
+}
+footer hr {
+    border: 1px solid indianred;
+    margin-top:0;
+    margin-bottom: 0;
+}
+#footer p {
+
+    font-size: 10px;
+    text-align: center;
+}
+#bottom-navigation .navbar-nav a {
+    font-family: 'Raleway', sans-serif;
+    color: white !important;
+
+}
+#bottom-navigation .navbar-nav a:hover {
+    font-family: 'Raleway', sans-serif;
+    color: gainsboro !important;
+    border-bottom: none !important;
+    text-decoration: underline;
+}
+#bottom-navigation {
+    padding-top: 40px;
+    background-color: rgb(34,34,34);
+}
+#bottom-navigation .nav-item,  #bottom-navigation .nav-link{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 11px !important;
+}
+#bottom-navigation .nav-item {
+    font-weight: bold;
+}
+#bottom-navigation ul {
+    padding-bottom: 40px;
+}
+#bottom-navigation .title {
+    padding-bottom: 10px;
+    font-family: Open Sans, Arial, sans-serif;
+}
+#bottom-navigation .navbar {
+    background-color: rgb(34,34,34) !important;
+    color: indianred !important;
+    font-family: 'Raleway', sans-serif !important;
+}
+#headlines, #featured-video, #leaderboard, #top-plays, #newsletter, #about, #awards {
+    border: 1px solid black !important;
+    max-height: 500px;
+    max-width: 300px;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex;
+}
+#headlines ul, #leaderboard ul, #top-plays ul {
+    /*margin: 10px;*/
+    padding-left: 30px;
+}
+#headlines hr, #leaderboard hr, #top-plays hr {
+    margin-right: 25px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+}
+#headlines li, #leaderboard li, #top-plays li {
+    font-size: 14px;
+}
+#headlines h1, #leaderboard h1, #top-plays h1 {
+    font-size: 16px !important;
+    padding-left: 25px;
+}
+.ad300x250 {
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex;
+    padding-top: 20px;
+}
+.center-news {
+    border: 1px solid black !important;
+    max-height: 2000px;
+    max-width: 2000px;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex;
+    margin-top: 20px;
+}
+#featured-video, #leaderboard, #top-plays, #newsletter, #about, #awards {
+    margin-top: 20px;
+}
+.center-news p {
+    padding:25px;
+    text-align: justify;
+}
+#featured-video h1, #newsletter h1, #about h1, #awards h1 {
+    text-align: justify;
+    font-size: 16px;
+}
+#featured-video, #newsletter, #about, #awards {
+    padding-left:25px;
+    text-align: justify;
+    padding-right:25px;
+}
+#headlines ul, #leaderboard ul, #top-plays ul
+{
+    list-style: none
+}
+#headlines ul li::before, #leaderboard ul li::before, #top-plays ul li::before{
+    content: "•";
+    color: indianred;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em
+}
+.standings-top {
+    height: 300px;
+    border: 0 solid black !important;
+}
+.standings-middle {
+    height: 1000px;
+    border: 0 solid black !important;
+}
