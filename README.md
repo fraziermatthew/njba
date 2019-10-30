@@ -1,4 +1,4 @@
-<img src="https://flcfit.com/wp-content/uploads/2018/04/Mens-league-logo.png" width="585" height="406"></img>
+<img src="https://flcfit.com/wp-content/uploads/2018/04/Mens-league-logo.png" width="25%" height="25%"></img>
 # NBJA Database
 **Matthew Frazier**<br>
 University of Delaware<br>
