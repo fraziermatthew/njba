@@ -9,11 +9,11 @@ This project proposes a database for a fictional basketball league, the National
 
 #### Documentation
 Details on the concept of the NJBA league is in the /docs folder:
-* Presentation.pdf
+* [Presentation.pdf](docs/Presentation.pdf)
   - Powerpoint bullet presentation of the NJBA that outlines its core competencies.
-* Proposal.pdf
+* [Proposal.pdf](docs/Proposal.pdf)
   - A paper that surveys the industry standard and proposes the need for the league.
-* User-Stories.pdf
+* [User-Stories.pdf](docs/User-Stories.pdf)
   - Focused user stories that outline the vision of the UI for the NJBA application.
   
 #### Database Design
