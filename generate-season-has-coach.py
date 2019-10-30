@@ -26,35 +26,36 @@ Steps to run this project:
 # 5 categories (Head, Assistant, Offensive, Defensive, Shooting)
 
 
-numSeasons  = 50
+numSeasons  = 150
 seasonId    = 1
 
 # Counters (Includes pre, reg, and post season for any given year)
-totalCount  = 150
-countChief  = 0
-countRef    = 0
-countUmp    = 0
+# totalCount  = 150
+# countChief  = 0
+# countRef    = 0
+# countUmp    = 0
+#
+# seasonChief = 1
+# seasonRef   = 1
+# seasonUmp   = 1
+#
+# maxChief = 131 # 6598 / 50
+# maxRef   = 133 # 6694 / 50
+# maxUmp   = 134 # 6708 / 50
 
-seasonChief = 1
-seasonRef   = 1
-seasonUmp   = 1
+season_reader = pd.read_csv('data/season.csv')
 
-maxChief = 131 # 6598 / 50
-maxRef   = 133 # 6694 / 50
-maxUmp   = 134 # 6708 / 50
+with open('data/season-has-coach.csv', mode ='w') as shc_file:
+    shc_writer = csv.writer(shc_file, delimiter =',', quotechar ='"', quoting =csv.QUOTE_MINIMAL)
 
-referee_reader = pd.read_csv('data/season.csv')
-
-with open('data/season-has-coach.csv', mode ='w') as output_file:
-    referee_has_season_writer = csv.writer(output_file, delimiter =',', quotechar ='"', quoting =csv.QUOTE_MINIMAL)
-
-
+    for index in range(numSeasons):
+        shc = []
+        shc_writer.writerow(shc)
     # for line in range(20000 -1):
     #
     #     # Find what the element is
     #     temp = referee_reader.iloc[line][4]
     #
-    #     refereehasseason = []
     #
     #     if temp == "Crew Chief" and countChief < maxChief and seasonChief < 150:
     #         refereehasseason.append(seasonChief)
