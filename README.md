@@ -23,7 +23,7 @@ Details on the concept of the NJBA league is in the /docs folder:
 #### Dependencis
 **PyPi libraries:**
   - [Names](https://pypi.org/project/names/)
-  - Pandas
+  - [Pandas](https://pypi.org/project/pandas/)
 > pip install names<br>
 > pip install pandas<br>
 >
@@ -35,9 +35,11 @@ Create a python virtual environment
 
 Launch the Python virutal environment
 > source ./bin/activate
->
+
 <br>
-**Payment Mapping**
-Donors  = 1      through 339457
-Sponsor = 339458 through 399999
-Shopper = 400000 through 5000000
+
+#### Addtional Information
+**Payment Mapping**<br>
+Donors  = 1      through 339457<br>
+Sponsor = 339458 through 399999<br>
+Shopper = 340000 through 5000000<br>
