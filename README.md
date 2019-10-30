@@ -1,5 +1,5 @@
 
-# NBJA Database <img src="https://flcfit.com/wp-content/uploads/2018/04/Mens-league-logo.png" width="25%" height="25%"></img>
+# NBJA Database <img src="https://flcfit.com/wp-content/uploads/2018/04/Mens-league-logo.png" align="right" width="25%" height="25%"></img>
 **Matthew Frazier**<br>
 University of Delaware<br>
 CISC 637 Database Systems<br>
