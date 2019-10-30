@@ -1,4 +1,4 @@
-# NBJA Database
+# NBJA Database <img src="https://flcfit.com/wp-content/uploads/2018/04/Mens-league-logo.png" align="right" width="25%" height="25%"></img>
 **Matthew Frazier**<br>
 University of Delaware<br>
 CISC 637 Database Systems<br>
@@ -16,12 +16,14 @@ Details on the concept of the NJBA league is in the /docs folder:
 * User-Stories.pdf
   - Focused user stories that outline the vision of the UI for the NJBA application.
   
+#### Database Design
+![Physical Model](models/physical-model.png)
+
+
 #### Requirements
 1. **MySQL:** [Download and install MySQL server here](https://dev.mysql.com/downloads/)
 2. **Python 3:** [Download and install Python 3 here](https://www.python.org/downloads/)
-
-#### Dependencis
-**PyPi libraries:**
+3. **PyPi libraries:**
   - [Names](https://pypi.org/project/names/)
   - [Pandas](https://pypi.org/project/pandas/)
 > pip install names<br>
