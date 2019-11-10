@@ -1,4 +1,4 @@
-"""generate-referee-has-season.py: Generates NJBA referee/season mapping table data."""
+"""referee-has-season.py: Generates NJBA referee/season mapping table data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"

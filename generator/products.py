@@ -1,4 +1,4 @@
-"""generate-products.py: Generates random NJBA product data."""
+"""products.py: Generates random NJBA product data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"

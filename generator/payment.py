@@ -1,4 +1,4 @@
-"""generate-payment.py: Generates random NJBA payment data."""
+"""payment.py: Generates random NJBA payment data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"

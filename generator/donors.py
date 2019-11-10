@@ -1,4 +1,4 @@
-"""generate-donors.py: Generates random NJBA donor data."""
+"""donors.py: Generates random NJBA donor data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"
@@ -16,7 +16,7 @@ Steps to run this project:
     2. Install Namebot PyPi Module - https://pypi.org/project/namebot/
         pip install sng
     3. Run the project
-        python3 generate-sponsors.py
+        python3 sponsors.py
 '''
 
 
@@ -383,7 +383,6 @@ with open('data/donors.csv', mode = 'w') as donor_file:
             bizPre = randint(0, 90)
             bizMid = randint(0, 90)
             bizSuf = randint(0, 40)
-            # print(bizPre)
 
             name = gen_name(bizPre,bizMid, bizSuf)
 

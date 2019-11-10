@@ -1,4 +1,4 @@
-"""generate-referees.py: Generates random NJBA referee data."""
+"""referees.py: Generates random NJBA referee data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"
@@ -17,7 +17,7 @@ Steps to run this project:
     2. Install names PyPi Module - https://pypi.org/project/names/
         pip install names
     3. Run the project
-        python3 generate-referees.py
+        python3 referees.py
 '''
 
 count = 1

@@ -1,4 +1,4 @@
-"""generate-shopper.py: Generates random NJBA shopper data."""
+"""shopper.py: Generates random NJBA shopper data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"

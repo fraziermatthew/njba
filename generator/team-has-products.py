@@ -1,4 +1,4 @@
-"""generate-team-has-products.py: Generates NJBA team/products mapping table."""
+"""team-has-products.py: Generates NJBA team/products mapping table."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"

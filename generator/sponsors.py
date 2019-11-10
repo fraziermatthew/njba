@@ -1,4 +1,4 @@
-"""generate-sponsors.py: Generates random NJBA sponsors data."""
+"""sponsors.py: Generates random NJBA sponsors data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 219, University of Delaware, CISC 637 Database Systems"
@@ -14,7 +14,7 @@ Steps to run this project:
         virtualenv -p python3 .
         ./bin/activate 
     2. Run the project
-        python3 generate-sponsors.py
+        python3 sponsors.py
 '''
 
 #      1 - 339457  Donor

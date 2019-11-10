@@ -1,4 +1,4 @@
-"""generate-teams.py: Generates random NJBA teams data."""
+"""teams.py: Generates random NJBA teams data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"
@@ -14,7 +14,7 @@ Steps to run this project:
     2. Install names PyPi Module - https://pypi.org/project/names/
         pip install names
     3. Run the project
-        python3 generate-teams.py
+        python3 teams.py
 '''
 
 

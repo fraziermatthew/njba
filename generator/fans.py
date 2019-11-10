@@ -1,4 +1,4 @@
-"""generate-fans.py: Generates random NJBA fans data."""
+"""fans.py: Generates random NJBA fans data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"
@@ -10,7 +10,8 @@ import csv
 import names
 
 count = 1
-emailDomain = ['yahoo', 'gmail', 'outlook', 'icloud', 'aol', 'mail', 'inbox', 'yandex', 'zoho', 'prontonmail']
+emailhost = ['yahoo', 'gmail', 'outlook', 'icloud', 'aol', 'mail', 'inbox', 'yandex', 'zoho', 'prontonmail']
+emaildomain = ['com', 'me', 'edu', 'info', 'org', 'net', 'blog', 'gov', 'co', 'ca']
 
 with open('data/fans.csv', mode='w') as fan_file:
     fan_writer = csv.writer(fan_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -37,8 +38,13 @@ with open('data/fans.csv', mode='w') as fan_file:
         fan.append(fan[1] + ' ' + fan[2])
 
         # Generate a random email domain
-        randDomain = randint(0,9)
-        fan.append(fan[1]+fan[2]+str(randint(1,500))+'@'+emailDomain[randDomain]+'.com')
+        fan.append(fan[1].lower()+fan[2].lower()+str(randint(1,999)))
+
+        randDomain = randint(0, 9)
+        fan.append(emailhost[randDomain])
+
+        randDomain = randint(0, 9)
+        fan.append(emaildomain[randDomain])
 
         fan_writer.writerow(fan)
         count+=1

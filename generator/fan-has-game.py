@@ -1,4 +1,4 @@
-"""generate-fan-has-game.py: Generates NJBA fan/game mapping table data."""
+"""fan-has-game.py: Generates NJBA fan/game mapping table data."""
 
 __author__ = "Matthew Frazier"
 __copyright__ = "Copyright 2019, University of Delaware, CISC 637 Database Systems"
@@ -10,13 +10,14 @@ import csv
 
 minAttendance = 16000
 maxAttendance = 20000
-gameid = 1
-maxGames = 1
+gameid = 5001
+maxGames = 130786
+# 82 + 8 + 16
 
-with open('data/fan_has_game.csv', mode='w') as fhg_file:
+with open('data/fan_has_game2.csv', mode='w') as fhg_file:
     fhg_writer = csv.writer(fhg_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-    with open('data/attendance.csv', mode = 'w') as attendance_file:
+    with open('data/attendance2.csv', mode = 'w') as attendance_file:
         attendance_writer = csv.writer(attendance_file, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_MINIMAL)
 
         while gameid <= maxGames:
