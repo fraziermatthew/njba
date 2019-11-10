@@ -1,0 +1,6 @@
+#!/bin/bash
+
+END=148
+for ((i=28;i<=END;i+=3)); do
+    sed 's/[a-zA-Z]* //' reg-test-2.$i.csv | sed 's/team //' | sed 's/team //' > reg-test-2.$i-c.csv
+done

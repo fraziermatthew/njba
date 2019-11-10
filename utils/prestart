@@ -1,0 +1,7 @@
+#!/bin/bash
+END=148
+for ((i=1;i<=END;i+=3)); do
+    j=$(($i+1))
+    awk -F "," '{print $1}' 01pre/pre$i.csv | head -n 1 >> gid-start.csv 
+    awk -F "," '{print $1}' 02reg/reg$j.csv | tail -n 1 >> gid-end.csv 
+done
