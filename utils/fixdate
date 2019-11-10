@@ -1,0 +1,9 @@
+#!/bin/bash
+
+awk '
+    BEGIN { FS = OFS = "," } 
+    { split($1, date, /\//)
+      $1 = date[3] "-" date[2] "-" date[1]
+      print $0 
+    }
+' part2.11.csv

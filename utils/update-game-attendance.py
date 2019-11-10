@@ -9,13 +9,11 @@ from random import *
 import csv
 import pandas as pd
 
-count = 1
+count = 79
 gameid = 0
-maxSeasons = 1
-# maxSeasons = 150
-# maxGames = 130786
+maxSeasons = 150
 
-att = pd.read_csv('data/attendance.csv', header=None)
+att = pd.read_csv('data/attendance2.csv', header=None)
 
 # While number of seasons is less than 150
 while count <= maxSeasons:
@@ -31,6 +29,7 @@ while count <= maxSeasons:
         for item in range(len(game_pre)):
 
             temp = list(game_pre.iloc[item, :])
+
             attendance = att.iloc[gameid][1]
 
             temp.append(attendance)
@@ -39,7 +38,7 @@ while count <= maxSeasons:
             gameid += 1
 
     # For each item in reg
-    # Update the game id
+    # Append the game attendance
 
     game_reg = pd.read_csv('data/game/02reg/reg' + str(count+1) + '.csv', header=None)
     #
@@ -57,7 +56,7 @@ while count <= maxSeasons:
             gameid += 1
 
     # For each item in post
-    # Update the game id
+    # Append the game attendance
 
     game_post = pd.read_csv('data/game/03post/post' + str(count+2) + '.csv', header=None)
 

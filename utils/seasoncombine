@@ -1,0 +1,10 @@
+#!/bin/bash
+# Combine all 3 files into 1
+END=79
+s=1
+for ((i=1;i<=END;i+=3)); do
+    j=$(($i+1))
+    k=$(($i+2))
+    cat  data/game/01pre/new/pre$i.csv data/game/02reg/new/reg$j.csv data/game/03post/new/post$k.csv >> data/game/00final/new/season$s.csv
+    s=$(($s+1))
+done
