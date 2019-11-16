@@ -144,13 +144,13 @@ count = 1
 sid = 1
 
 
-with open('data/box_score-new.csv', mode = 'w') as stat_file:
+with open('data/box_score.csv', mode = 'w') as stat_file:
     stat_writer = csv.writer(stat_file, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_MINIMAL)
 
     # For each game in the pre and reg season
     while count <= numOfSeasons:
 
-        game_pre = pd.read_csv('data/game/01pre/pre' + str(count) + '.csv', header = None)
+        game_pre = pd.read_csv('data/game/season' + str(count) + '.csv', header = None)
 
         for index in range(len(game_pre)):
             gameid = game_pre.iloc[index][0]
@@ -193,50 +193,7 @@ with open('data/box_score-new.csv', mode = 'w') as stat_file:
                 a_low += 1
                 stat_writer.writerow(stat)
 
-        game_reg = pd.read_csv('data/game/02reg/reg' + str(count + 1) + '.csv', header = None)
-
-        for index in range(len(game_reg)):
-            gameid = game_reg.iloc[index][0]
-
-            # Find out the home team id
-            home = game_reg.iloc[index][4]
-
-            # Find out IDs for that player
-            h_top2 = (home * 15) * season  # Find out max player ID
-            h_low2 = h_top2 - 14  # Find out min player ID
-
-            numPlayed = randint(8, 12)
-            # print(type(h_top2))
-            num = 1
-            playedTracker = []
-
-            # For each player on the home team (Each team has 15 players)
-            while h_low <= h_top:
-                # Create fake stats for that given game for that player
-                stat = make_stats(h_low, gameid, home)
-
-                h_low += 1
-                stat_writer.writerow(stat)
-
-            # Find out the away team id
-            away = game_reg.iloc[index][5]
-
-            a_top = (away * 15) * season  # Find out max player ID
-            a_low = a_top - 14  # Find out min player ID
-
-            numPlayed = randint(8, 12)
-            num = 1
-            playedTracker = []
-
-            # For each player on the away team (Each team has 15 players)
-            while a_low <= a_top:
-                # Create fake stats for that given game for that player
-                stat = make_stats(a_low, gameid, away)
-
-                a_low += 1
-                stat_writer.writerow(stat)
-
-        count += 3
+        count += 1
 
         # Increment player roster every 3 years
         if season % 3 == 0:

@@ -12,10 +12,10 @@ import csv
 # 30 teams * 39 different products
 
 paymentID = 340000
-maxPID = 5000000
+maxPID = 1000000
 count = 0
 
-with open('data/product-has-payment.csv', mode = 'w') as php_file:
+with open('data/product-has-payment-c.csv', mode = 'w') as php_file:
     product_has_season_payment = csv.writer(php_file, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_MINIMAL)
 
     while paymentID < maxPID:
@@ -25,7 +25,7 @@ with open('data/product-has-payment.csv', mode = 'w') as php_file:
 
         while count < numOfItems:
             php = []
-            productID = randint(1,1170)
+            productID = randint(1,14040)
 
             # Product ID
             php.append(productID)

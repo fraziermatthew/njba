@@ -7,11 +7,11 @@ __email__ = "matthew@udel.edu"
 import csv
 
 numOfTeams = 30
-numOfProducts = 39
+numOfProducts = 468
 productid = 1
 # 30 * 39 = 1170 products
 
-with open('data/teams-has-products.csv', mode='w') as thp_file:
+with open('data/teams-has-products2.csv', mode='w') as thp_file:
     thp_writer = csv.writer(thp_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     for team in range(numOfTeams):

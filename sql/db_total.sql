@@ -1,4 +1,9 @@
--- Provide results of -> select count(*) for each table
+-- =====================================================
+-- Author:      Matthew Frazier
+-- Create date: 11/1/19
+-- Description: Provide results of -> select count(*)
+--              for each table.
+-- =====================================================
 
 SELECT COUNT(*) box_score_count
   FROM njba.box_score;

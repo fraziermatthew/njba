@@ -24,7 +24,7 @@ sea_reader = pd.read_csv('data/referee-has-season-col.csv')
 ref_reader = pd.read_csv('data/referees-col.csv',)
 game_reader = pd.read_csv('data/games-col.csv')
 
-with open('data/game-has-referee-new.csv', mode ='w') as ghr_file:
+with open('data/game-has-referee.csv', mode ='w') as ghr_file:
     ghr_writer = csv.writer(ghr_file, delimiter =',', quotechar ='"', quoting =csv.QUOTE_MINIMAL)
 
     # For every season id
