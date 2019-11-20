@@ -18,7 +18,7 @@ count = 0
 with open('data/product-has-payment-c.csv', mode = 'w') as php_file:
     product_has_season_payment = csv.writer(php_file, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_MINIMAL)
 
-    while paymentID < maxPID:
+    while paymentID <= maxPID:
 
         # Number of items per transaction
         numOfItems = randint(1,6)

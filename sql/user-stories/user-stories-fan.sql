@@ -57,9 +57,9 @@ ORDER BY 2 ASC;
 # 3. Need to rank teams in standings
 
 # Sub-task 1 - Create Totals View
-DROP VIEW IF EXISTS totals;
+DROP TABLE IF EXISTS totals;
 
-CREATE VIEW totals AS
+CREATE TABLE totals AS
 (
 SELECT DISTINCT t1.idgame,
                 t1.season_idseason,
@@ -146,8 +146,6 @@ CREATE VIEW win AS (
     order by 1, 2
 );
 
-select * from team;
-
 DROP VIEW IF EXISTS standings;
 
 CREATE VIEW standings AS (
@@ -228,7 +226,6 @@ CREATE VIEW standings AS (
         JOIN team t
     ) AS standings
     GROUP BY idteam
-
 );
 
 
@@ -345,7 +342,9 @@ DELIMITER ;
 # 2 Sub-tasks
 # 1. Need to create a totals view that records number of games played by a team in a given period
 #       e.g. games_played VIEW attributes -> date, teamid, played_game
-# 2. Need to create a standings view that summarizes each team based ON totals view
+# 2. Need to create a averages view that summarizes each team based on totals view
+
+# Sub-task 1 - Create Totals View
 
 -- Season
 DROP FUNCTION IF EXISTS season;
@@ -410,8 +409,6 @@ CREATE VIEW player_avg AS
                   ON b.player_idplayer = p.idplayer
              JOIN team t
                   ON b.team_idteam = t.idteam
-#              JOIN games_played gp
-#                   ON t.team_name = gp.team_name
     WHERE g.date BETWEEN start_date() AND end_date()
     GROUP BY 1, 2
     ORDER BY 1, 2 ASC
@@ -794,4 +791,41 @@ ORDER BY conference, division, team_name;
       (SELECT @curRank := 0) r
       -- Stat Filter
  ORDER BY team_pts DESC;
+
+
+-- =====================================================
+-- Additional Queries
+-- =====================================================
+
+
+DROP VIEW IF EXISTS player_adv;
+
+CREATE VIEW player_adv AS
+(
+    SELECT t.team_name,
+           p.full_name,
+           ROUND((SUM(fgm + fg3) + 0.5 * fg3) / SUM(fga + fg3a) * 100, 1)    AS efg_pct,
+           ROUND(SUM(fga + fg3a) + 0.475 * fta, 1)  AS tsa,
+           ROUND(points / (2 * (SUM(fga + fg3a) + 0.475 * fta)) * 100, 1) AS ts_pct,
+           ROUND((ft / SUM(fga + fg3a)  * 100), 1)   AS ftr,
+           ROUND(100 * turnovers / (SUM(fga + fg3a) + 0.44 * fta + turnovers), 1)   AS tov_pct,
+           ROUND((points + 0.4 * SUM(fga + fg3a) - 0.7 * fga -
+                  0.4 * (fta - ft) + 0.7 * orb + 0.3 * drb + 0.7 *
+                  assists + 0.7 * blocks - 0.4 * Fouls - turnovers), 1) AS gmsc
+    FROM player_raw pr
+             JOIN player p
+                  ON pr.full_name = p.full_name
+             JOIN team t
+                  ON pr.team_name = t.team_name
+             JOIN games_played gp
+                  ON t.team_name = gp.team_name
+    GROUP BY 1, 2
+    ORDER BY 1, 2 ASC
+);
+
+-- How to FREE memory (CPU Utilization High) - Kill Process IDs
+# SELECT * FROM INFORMATION_SCHEMA.PROCESSLIST;
+# Select concat('KILL ',id,';') from information_schema.processlist where user='admin';
+
+
 

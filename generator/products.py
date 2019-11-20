@@ -133,5 +133,30 @@ with open('data/products4.csv', mode='w') as product_file:
                     # Product color
                     product.append(colors[color])
 
+                    # Product Description
+                    clothing = []
+                    descRand = randint(0, 2)
+                    clothRand = randint(0, 1)
+                    if all_size[item] == 'T-shirt':
+                        clothing.append(shirt_type[1] + ' ' + all_size[item] + '. ' +
+                                        description[descRand]) \
+                            if clothRand == 1 \
+                            else clothing.append(shirt_type[0] + ' ' + all_size[item] + '. ' +
+                                                 description[descRand])
+                    else:
+                        clothing.append(clothing_type[1] + ' ' + all_size[item] + '. ' +
+                                        description[descRand]) \
+                            if clothRand == 1 \
+                            else clothing.append(clothing_type[0] + ' ' + all_size[item] + '. ' +
+                                                 description[descRand])
+                    product.append(clothing[0])
+
+                    # Product Details
+                    madeRand = randint(0, 3)
+                    detailsRand = randint(0, 6)
+                    detail = []
+                    detail.append(details[detailsRand] + " " + made[madeRand])
+                    product.append(detail[0])
+
                     id += 1
                     product_writer.writerow(product)

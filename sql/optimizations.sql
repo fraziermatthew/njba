@@ -375,10 +375,10 @@ EXPLAIN EXTENDED
     ORDER BY NULL
 );
 
--- SELECT * FROM information_schema.INNODB_TEMP_TABLE_INFO; -- Shows Temporary Tables List
+SELECT * FROM information_schema.INNODB_TEMP_TABLE_INFO; -- Shows Temporary Tables List
 
 
--- #3 Before Optimization Results (No Story)
+-- #3 Before Optimization Resutls (No Story)
 --        Find all the Assistant coaches full names that have the
 --        same full name AS players on their team's roster
 -- =================================================================
@@ -662,3 +662,7 @@ EXPLAIN EXTENDED
     GROUP BY 1
     ORDER BY 1 ASC
 );
+
+
+
+

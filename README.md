@@ -17,13 +17,14 @@ Details on the concept of the NJBA league is in the /docs folder:
   - Focused user stories that outline the vision of the UI for the NJBA application.
   
 #### Database Design
-![Physical Model](models/physical-model.png)
+![Physical Model](docs/models/physical-model.png)
 
 
 #### Requirements
 1. **MySQL:** [Download and install MySQL server here](https://dev.mysql.com/downloads/)
 2. **Python 3:** [Download and install Python 3 here](https://www.python.org/downloads/)
 3. **PyPi libraries:**
+> pip install -r requirements.txt
   - [Names](https://pypi.org/project/names/)
   - [Pandas](https://pypi.org/project/pandas/)
 > pip install names<br>
