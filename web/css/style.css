@@ -26,7 +26,9 @@
 }
 body {
     background-color: lightgrey !important;
-    /*background-image: url('../images/ball-basketball-basketball-court-1752757.jpg');*/
+    background-image: url('../images/background2.png');
+    background-repeat: no-repeat;
+    background-size: auto;
     /*width: 100%;*/
 }
 #content {
@@ -138,7 +140,7 @@ footer hr {
     color: indianred !important;
     font-family: 'Raleway', sans-serif !important;
 }
-#headlines, #featured-video, #leaderboard, #top-plays, #newsletter, #about, #awards {
+#headlines, #leaderboard, #top-plays, #newsletter, #about, #awards {
     border: 1px solid black !important;
     max-height: 500px;
     max-width: 300px;
@@ -147,6 +149,16 @@ footer hr {
     flex-direction: column;
     display: flex;
 }
+#featured-video {
+    border: 1px solid black !important;
+    max-height: 500px;
+    max-width: 300px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex;
+}
+
 #headlines ul, #leaderboard ul, #top-plays ul {
     /*margin: 10px;*/
     padding-left: 30px;
@@ -174,24 +186,31 @@ footer hr {
     border: 1px solid black !important;
     max-height: 2000px;
     max-width: 2000px;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     flex-wrap: wrap;
     flex-direction: column;
     display: flex;
     margin-top: 20px;
+    padding: 25px;
 }
-#featured-video, #leaderboard, #top-plays, #newsletter, #about, #awards {
+.center-news img {
+    width: 100%;
+}
+#leaderboard, #top-plays, #newsletter, #about, #awards {
     margin-top: 20px;
+}
+#featured-video video {
+    width: 100%;
 }
 .center-news p {
     padding:25px;
     text-align: justify;
 }
-#featured-video h1, #newsletter h1, #about h1, #awards h1 {
+h1, #newsletter h1, #about h1, #awards h1 {
     text-align: justify;
     font-size: 16px;
 }
-#featured-video, #newsletter, #about, #awards {
+#newsletter, #about, #awards {
     padding-left:25px;
     text-align: justify;
     padding-right:25px;
@@ -215,3 +234,52 @@ footer hr {
     height: 1000px;
     border: 0 solid black !important;
 }
+Submit my Form
+
+input[type=submit]
+{
+    padding: 10px 20px 11px !important;
+    font-size: 21px !important;
+    background-color: #F36C8C;
+    font-weight: bold;
+    text-shadow: 1px 1px #F36C8C !important;
+    color: #ffffff;
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border: 1px solid #F36C8C !important;
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+#middle-section {
+    padding-left:25px;
+    text-align: center;
+    padding-right:25px;
+    padding-bottom:25px;
+}
+#submit {
+    background-color: whitesmoke !important;
+    border-radius: 2px;
+    border: 1px solid indianred; /* Green */
+    /*box-shadow: 0 2px 16px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.19);*/
+    padding: 2px;
+    font-size: 13px;
+}
+.center-news table {
+    border-collapse: collapse;
+}
+.center-news td,.center-news  th {
+    border: 1px solid gainsboro !important;
+}
+
+/*#view {*/
+/*    background-image: linear-gradient(*/
+/*            rgba(20,20,20, .5),*/
+/*            rgba(20,20,20, .5)),*/
+/*    url('../images/store.png') !important;*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
+/*    background-position: center center;*/
+/*}*/
