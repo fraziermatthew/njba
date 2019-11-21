@@ -112,23 +112,78 @@ VerifyDBConnection($connection, DB_DATABASE);
         <div class="row" style="padding-top: 20px;" >
             <div class="col-lg-9" style="padding-right: 5px; padding-left: 20px;">
 
-                <div class="flexbox center-news" style="margin-top: 0;">
-                    <h1>NBJA Teams</h1>
+                <div id="middle-section" class="flexbox center-news" style="margin-top: 0;">
 
+                    <?php
 
+                    // Our select statement. This will retrieve the data that we want.
+                    $sql = mysqli_query($connection,"select distinct date from schedule");
+                    ?>
+
+                    <form action="#" method="get">
+                        <select name="select_id">
+                            <?php foreach($sql as $item): ?>
+                                <option value="<?= $item['date']; ?>"><?= $item['date']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        &nbsp;&nbsp;
+                        <input id="submit" type="submit" name="submit" value="Filter" />
+                    </form>
+
+                    <br>
 
                     <!-- Display table data. -->
                     <table border="1" cellpadding="2" cellspacing="2">
+                        <tr bgcolor="#cd5c5c" color="#fff">
+                            <td><h3>Home Team</h3></td>
+                            <td><h3>Home Points</h3></td>
+                            <td><h3>Away Team</h3></td>
+                            <td><h3>Away Points</h3></td>
+                        </tr>
+
                         <?php
 
-                        $result = mysqli_query($connection,
-                            "SELECT CONCAT(location, ' ', team_name) FROM njba.team ORDER BY team.team_name");
+                        if(isset($_GET['submit'])){
+                            $temp = $_GET['select_id'];  // Storing Selected Value In Variable
+                        }
 
-                        while($query_data = mysqli_fetch_row($result)) {
+                        $result1 = mysqli_query($connection,
+                            "select date, 
+                                        team_name, 
+                                        sum(pts) pts
+                                    from box_score b 
+                                        join game g 
+                                            on b.game_idgame = g.idgame 
+                                        join team t 
+                                            on g.home_team_id = t.idteam 
+                                    where g.home_team_id = team_idteam 
+                                        and date = '".$temp."'
+                                    group by game_idgame asc 
+                                    limit 15");
+
+                        $result2 = mysqli_query($connection,
+                            "select date, 
+                                        team_name, 
+                                        sum(pts) pts
+                                    from box_score b 
+                                        join game g 
+                                            on b.game_idgame = g.idgame 
+                                        join team t 
+                                            on g.away_team_id = t.idteam 
+                                    where g.away_team_id = team_idteam 
+                                        and date = '".$temp."'
+                                    group by game_idgame asc 
+                                    limit 15");
+                        
+                        while($query_data1 = mysqli_fetch_row($result1) and $query_data2 = mysqli_fetch_row($result2)) {
                             echo "<tr>";
-                            echo "<td>",$query_data[0], "</td>";
+                            echo "<td>",$query_data1[1], "</td>",
+                           "<td>",$query_data1[2], "</td>",
+                            "<td>",$query_data2[1], "</td>",
+                            "<td>",$query_data2[2], "</td>";
                             echo "</tr>";
                         }
+
                         ?>
 
                     </table>
@@ -136,48 +191,69 @@ VerifyDBConnection($connection, DB_DATABASE);
                     <!-- Clean up. -->
                     <?php
 
-                    mysqli_free_result($result);
+                    mysqli_free_result($result1);
                     mysqli_close($connection);
 
                     ?>
 
-
-
-
-
                 </div>
             </div>
             <div class="col-lg-3" style="padding-right: 5px;">
-                <div class="flexbox" id="headlines">
-
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
-                </div>
                 <div class="flexbox" id="featured-video">
+
+                    <video controls autoplay muted>
+                        <source src="images/vid7.webm" type="video/webm">
+                    </video>
+                </div>
+
+                <div class="flexbox" id="newsletter">
+
+                    <form method="post" action="//submit.form" onSubmit="return validateForm();">
+                        <div style="width: 400px;">
+                        </div>
+                        <div style="padding-bottom: 14px;font-size : 18px;">NJBA Newsletter Subscription</div>
+                        <div style="padding-bottom: 14px;">NAME<span style="color: red;"> *</span><br/>
+                            <input type="text" id="data_2"90% name="data_2" style="width : 65%;" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 14px;">EMAIL<span style="color: red;"> *</span><br/>
+                            <input type="text" id="data_4" name="data_4" style="width : 65%;" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 14px;"><input name="skip_Submit" value="SUBSCRIBE" type="submit"/></div>
+                    </form>
+
+                    <script type="text/javascript">
+                        function validateForm() {
+                            if (isEmpty(document.getElementById('data_2').value.trim())) {
+                                alert('NAME is required!');
+                                return false;
+                            }
+                            if (isEmpty(document.getElementById('data_4').value.trim())) {
+                                alert('EMAIL is required!');
+                                return false;
+                            }
+                            if (!validateEmail(document.getElementById('data_4').value.trim())) {
+                                alert('EMAIL must be a valid email address!');
+                                return false;
+                            }
+                            return true;
+                        }
+                        function isEmpty(str) { return (str.length === 0 || !str.trim()); }
+                        function validateEmail(email) {
+                            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
+                            return isEmpty(email) || re.test(email);
+                        }
+                    </script>
 
                 </div>
                 <div class="flexbox ad300x250">
                     <div class="banner_ad300x600">ADVERTISEMENT PLACEHOLDER</div>
                 </div>
-                <div class="flexbox" id="leaderboard">
+                <div class="flexbox" id="featured-video">
+                    <video controls autoplay muted>
+                        <source src="images/vid6.webm" type="video/webm">
+                    </video>
+                </div>
 
-                </div>
-                <div class="flexbox" id="top-plays">
-
-                </div>
-                <div class="flexbox" id="newsletter">
-
-                </div>
-                <div class="flexbox" id="about">
-
-                </div>
-                <div class="flexbox" id="awards">
-
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
-                </div>
             </div>
         </div>
     </div>

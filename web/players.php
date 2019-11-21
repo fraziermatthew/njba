@@ -232,7 +232,7 @@ VerifyDBConnection($connection, DB_DATABASE);
                     <a class="nav-link" href="#">Coaches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Scores</a>
+                    <a class="nav-link" href="scores.php">Scores</a>
                 </li>
             </ul>
         </div>
