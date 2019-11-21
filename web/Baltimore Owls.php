@@ -126,7 +126,7 @@ VerifyDBConnection($connection, DB_DATABASE);
                         <?php
 
                         $result = mysqli_query($connection,
-                            "select team_name, location, conference, division, mascot from team where team_name = 'Ballers'");
+                            "select team_name, location, conference, division, mascot from team where team_name = 'Owls'");
 
                         while($query_data = mysqli_fetch_row($result)) {
                             echo "<tr>";

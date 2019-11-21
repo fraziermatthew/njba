@@ -123,8 +123,7 @@ VerifyDBConnection($connection, DB_DATABASE);
 
                         while($query_data = mysqli_fetch_row($result)) {
                             echo "<tr>";
-
-                            echo "<td><a href=\"$query_data[1].php\">",$query_data[0], "</a></td>";
+                            echo "<td><a href=\"$query_data[0].php\">",$query_data[0], "</a></td>";
                             echo "</tr>";
                         }
                         ?>
