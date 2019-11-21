@@ -71,7 +71,7 @@ Placeholder pages are included. The following pages were not built in the MVP of
 #### Additional Information
 **Coding Software**<br>
 JetBrains products were used to build this project including PyCharm, PHPStorm, and DataGrip.
-<br>
+<br><br>
 **Template pages are included.**<br>
 - sample
 - template
