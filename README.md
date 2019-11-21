@@ -39,6 +39,9 @@ Create a python virtual environment
 Launch the Python virutal environment
 > source ./bin/activate
 
+Run requirements.txt in your shell
+>  pip install -r requirements.txt
+
 <br>
 
 #### Additional Information
