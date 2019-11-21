@@ -55,7 +55,7 @@ VerifyDBConnection($connection, DB_DATABASE);
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="scores.php">SCORES <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="scores.php">SCORES</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="standings.php">STANDINGS</a>
@@ -64,7 +64,7 @@ VerifyDBConnection($connection, DB_DATABASE);
                         <a class="nav-link" href="schedule.php">SCHEDULE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="stats.php">STATS</a>
+                        <a class="nav-link" href="stats.php" style="color:yellow !important;"><b>STATS</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="players.php">PLAYERS</a>
@@ -110,23 +110,95 @@ VerifyDBConnection($connection, DB_DATABASE);
 <div class="container" id="content">
     <div class="flexbox">
         <div class="row" style="padding-top: 20px;" >
-            <div class="col-lg-9" style="padding-right: 5px; padding-left: 20px;">
+            <div class="col-lg-12" style="padding-right: 5px; padding-left: 20px;">
 
-                <div class="flexbox center-news" style="margin-top: 0;">
-                    <h1>NBJA Teams</h1>
+                <div id="middle-section" class="flexbox center-news" style="margin-top: 0;">
 
+<!--                    <div><input type="radio" name="run" value="team" checked> Team &nbsp&nbsp&nbsp-->
+<!--                         <input type="radio" name="run" value="player"> Player</div>-->
+<!--                    <br>-->
 
+                    <?php
+
+                    // Our select statement. This will retrieve the data that we want.
+                    $sql = mysqli_query($connection,"select DISTINCT idseason, 
+                                                            CONCAT(type, ' ', YEAR(start_date), ' - ', 
+                                                                YEAR(end_date)) as season 
+                                                            from leaderboard l join season s 
+                                                                on l.season_idseason = s.idseason");
+                    ?>
+
+                    <form action="#" method="get">
+                        <select name="select_id">
+                            <?php foreach($sql as $item): ?>
+                                <option value="<?= $item['idseason']; ?>"><?= $item['season']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        &nbsp;&nbsp;
+                        <input id="submit" type="submit" name="submit" value="Filter" />
+                    </form>
+
+                    <br>
 
                     <!-- Display table data. -->
-                    <table border="1" cellpadding="2" cellspacing="2">
+                    <table border="1"  class="stats">
+                        <tr bgcolor="#cd5c5c" color="#fff">
+                            <td>Player</td>
+                            <td>PTS</td>
+                            <td>MIN</td>
+                            <td>FGM</td>
+                            <td>FGA</td>
+                            <td>FG%</td>
+                            <td>FG3</td>
+                            <td>FG3A</td>
+                            <td>FT</td>
+                            <td>FTA</td>
+                            <td>FT%</td>
+                            <td>ORD</td>
+                            <td>DRB%</td>
+                            <td>TRB</td>
+                            <td>AST</td>
+                            <td>BLK</td>
+                            <td>TOV</td>
+                            <td>FLS</td>
+                        </tr>
+
                         <?php
 
+                        if(isset($_GET['submit'])){
+                            $temp = $_GET['select_id'];  // Storing Selected Value In Variable
+                        }
+
+                        if(isset($_POST['radio'])){
+                            $temp2 = $_POST['run'];  // Storing Selected Value In Variable
+                        }
                         $result = mysqli_query($connection,
-                            "SELECT CONCAT(location, ' ', team_name) FROM njba.team ORDER BY team.team_name");
+                            "select full_name, points, mins, fgm, fga, 
+                                    fg_pct, fg3, fg3a, fg3_pct, ft, fta, ft_pct, orb, drb, 
+                                    trb, assists, blocks, turnovers, fouls 
+                                    from player_avg 
+                                    where season_idseason = '".$temp."' order by points desc limit 100");
 
                         while($query_data = mysqli_fetch_row($result)) {
                             echo "<tr>";
-                            echo "<td>",$query_data[0], "</td>";
+                            echo "<td>",$query_data[0], "</td>",
+                            "<td>",$query_data[1], "</td>",
+                            "<td>",$query_data[2], "</td>",
+                            "<td>",$query_data[3], "</td>",
+                            "<td>",$query_data[4], "</td>",
+                            "<td>",$query_data[5], "</td>",
+                            "<td>",$query_data[6],"</td>",
+                            "<td>",$query_data[7], "</td>",
+                            "<td>",$query_data[8], "</td>",
+                            "<td>",$query_data[9], "</td>",
+                            "<td>",$query_data[10], "</td>",
+                            "<td>",$query_data[11], "</td>",
+                            "<td>",$query_data[12], "</td>",
+                            "<td>",$query_data[13], "</td>",
+                            "<td>",$query_data[14], "</td>",
+                            "<td>",$query_data[15], "</td>",
+                            "<td>",$query_data[16],"</td>",
+                            "<td>",$query_data[17], "</td>";
                             echo "</tr>";
                         }
                         ?>
@@ -141,59 +213,78 @@ VerifyDBConnection($connection, DB_DATABASE);
 
                     ?>
 
-
-
-
-
                 </div>
             </div>
-            <div class="col-lg-3" style="padding-right: 5px;">
-                <div class="flexbox" id="headlines">
-
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
-                </div>
-                <div class="flexbox" id="featured-video">
-
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x600">ADVERTISEMENT PLACEHOLDER</div>
-                </div>
-                <div class="flexbox" id="leaderboard">
-
-                </div>
-                <div class="flexbox" id="top-plays">
-
-                </div>
-                <div class="flexbox" id="newsletter">
-
-                </div>
-                <div class="flexbox" id="about">
-
-                </div>
-                <div class="flexbox" id="awards">
-
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
-                </div>
-            </div>
+<!--            <div class="col-lg-3" style="padding-right: 5px;">-->
+<!--                <div class="flexbox" id="headlines">-->
+<!---->
+<!--                </div>-->
+<!--                <div class="flexbox ad300x250">-->
+<!--                    <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>-->
+<!--                </div>-->
+<!--                <div class="flexbox" id="featured-video">-->
+<!--                    <video controls autoplay muted>-->
+<!--                        <source src="images/vid10.mp4" type="video/mp4">-->
+<!--                    </video>-->
+<!--                </div>-->
+<!--                <div class="flexbox" id="awards">-->
+<!--                    <h1>Hall of Fame</h1>-->
+<!--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Immo istud quidem, inquam, quo loco quidque, nisi iniquum postulo, arbitratu meo. Quod quidem nobis non saepe contingit. Ait enim se, si uratur, Quam hoc suave! dicturum. </p>-->
+<!--                </div>-->
+<!--                <div class="flexbox ad300x250">-->
+<!--                    <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>-->
+<!--                </div>-->
+<!--                <div class="flexbox" id="newsletter">-->
+<!---->
+<!--                    <form method="post" action="//submit.form" onSubmit="return validateForm();">-->
+<!--                        <div style="width: 400px;">-->
+<!--                        </div>-->
+<!--                        <div style="padding-bottom: 14px;font-size : 18px;">NJBA Newsletter Subscription</div>-->
+<!--                        <div style="padding-bottom: 14px;">NAME<span style="color: red;"> *</span><br/>-->
+<!--                            <input type="text" id="data_2"90% name="data_2" style="width : 65%;" class="form-control"/>-->
+<!--                        </div>-->
+<!--                        <div style="padding-bottom: 14px;">EMAIL<span style="color: red;"> *</span><br/>-->
+<!--                            <input type="text" id="data_4" name="data_4" style="width : 65%;" class="form-control"/>-->
+<!--                        </div>-->
+<!--                        <div style="padding-bottom: 14px;"><input name="skip_Submit" value="SUBSCRIBE" type="submit"/></div>-->
+<!--                    </form>-->
+<!---->
+<!--                    <script type="text/javascript">-->
+<!--                        function validateForm() {-->
+<!--                            if (isEmpty(document.getElementById('data_2').value.trim())) {-->
+<!--                                alert('NAME is required!');-->
+<!--                                return false;-->
+<!--                            }-->
+<!--                            if (isEmpty(document.getElementById('data_4').value.trim())) {-->
+<!--                                alert('EMAIL is required!');-->
+<!--                                return false;-->
+<!--                            }-->
+<!--                            if (!validateEmail(document.getElementById('data_4').value.trim())) {-->
+<!--                                alert('EMAIL must be a valid email address!');-->
+<!--                                return false;-->
+<!--                            }-->
+<!--                            return true;-->
+<!--                        }-->
+<!--                        function isEmpty(str) { return (str.length === 0 || !str.trim()); }-->
+<!--                        function validateEmail(email) {-->
+<!--                            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;-->
+<!--                            return isEmpty(email) || re.test(email);-->
+<!--                        }-->
+<!--                    </script>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </div>
 <!--END CONTENT-->
-<button class="btn btn-primary scroll-top" data-scroll="up" type="button">
-    <i class="fa fa-chevron-up"></i>
-</button>
-<script src="scroll.js"></script>
 
 <!--BEGIN FOOTER-->
 <footer>
     <!--<hr>-->
 
     <!--BEGIN BOTTOM NAVIGATION-->
-    <!--        <div class="container">-->
+
 
 
     <div class="row" id="bottom-navigation">
@@ -293,7 +384,7 @@ VerifyDBConnection($connection, DB_DATABASE);
         </p>
     </div>
     <!--END COPYRIGHT-->
-    <!--        </div>-->
+
 </footer>
 <!--END FOOTER-->
 

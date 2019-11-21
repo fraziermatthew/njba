@@ -70,7 +70,7 @@ VerifyDBConnection($connection, DB_DATABASE);
                         <a class="nav-link" href="players.php">PLAYERS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="teams.php">TEAMS</a>
+                        <a class="nav-link" href="teams.php" style="color:yellow !important;"><b>TEAMS</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">VIDEO</a>
@@ -123,7 +123,8 @@ VerifyDBConnection($connection, DB_DATABASE);
 
                         while($query_data = mysqli_fetch_row($result)) {
                             echo "<tr>";
-                            echo "<td>",$query_data[0], "</td>";
+
+                            echo "<td><a href=\"$query_data[1].php\">",$query_data[0], "</a></td>";
                             echo "</tr>";
                         }
                         ?>
@@ -138,42 +139,76 @@ VerifyDBConnection($connection, DB_DATABASE);
 
                     ?>
 
-
-
-
-
                 </div>
             </div>
             <div class="col-lg-3" style="padding-right: 5px;">
-                <div class="flexbox" id="headlines">
+                <div class="flexbox" id="newsletter" style="margin-top: 0;">
 
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
+                    <form method="post" action="//submit.form" onSubmit="return validateForm();">
+                        <div style="width: 400px;">
+                        </div>
+                        <div style="padding-bottom: 14px;font-size : 18px;">NJBA Newsletter Subscription</div>
+                        <div style="padding-bottom: 14px;">NAME<span style="color: red;"> *</span><br/>
+                            <input type="text" id="data_2"90% name="data_2" style="width : 65%;" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 14px;">EMAIL<span style="color: red;"> *</span><br/>
+                            <input type="text" id="data_4" name="data_4" style="width : 65%;" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 14px;"><input name="skip_Submit" value="SUBSCRIBE" type="submit"/></div>
+                    </form>
+
+                    <script type="text/javascript">
+                        function validateForm() {
+                            if (isEmpty(document.getElementById('data_2').value.trim())) {
+                                alert('NAME is required!');
+                                return false;
+                            }
+                            if (isEmpty(document.getElementById('data_4').value.trim())) {
+                                alert('EMAIL is required!');
+                                return false;
+                            }
+                            if (!validateEmail(document.getElementById('data_4').value.trim())) {
+                                alert('EMAIL must be a valid email address!');
+                                return false;
+                            }
+                            return true;
+                        }
+                        function isEmpty(str) { return (str.length === 0 || !str.trim()); }
+                        function validateEmail(email) {
+                            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
+                            return isEmpty(email) || re.test(email);
+                        }
+                    </script>
+
                 </div>
                 <div class="flexbox" id="featured-video">
-
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x600">ADVERTISEMENT PLACEHOLDER</div>
-                </div>
-                <div class="flexbox" id="leaderboard">
-
-                </div>
-                <div class="flexbox" id="top-plays">
-
-                </div>
-                <div class="flexbox" id="newsletter">
-
-                </div>
-                <div class="flexbox" id="about">
-
-                </div>
-                <div class="flexbox" id="awards">
-
+                    <video controls autoplay muted>
+                        <source src="images/vid6.webm" type="video/webm">
+                    </video>
                 </div>
                 <div class="flexbox ad300x250">
                     <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
+                </div>
+                <div class="flexbox" id="leaderboard">
+                    <h1>Top Plays</h1>
+                    <hr>
+                    <ul>
+                        <li>
+                            player #1
+                        </li>
+                        <li>
+                            player #2
+                        </li>
+                        <li>
+                            player #3
+                        </li>
+                        <li>
+                            player #4
+                        </li>
+                        <li>
+                            player #5
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

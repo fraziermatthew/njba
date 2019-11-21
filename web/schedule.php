@@ -61,7 +61,7 @@ VerifyDBConnection($connection, DB_DATABASE);
                         <a class="nav-link" href="standings.php">STANDINGS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="schedule.php">SCHEDULE</a>
+                        <a class="nav-link" href="schedule.php" style="color:yellow !important;"><b>SCHEDULE</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="stats.php">STATS</a>
@@ -172,41 +172,81 @@ VerifyDBConnection($connection, DB_DATABASE);
                     ?>
 
 
-
-
-
                 </div>
             </div>
             <div class="col-lg-3" style="padding-right: 5px;">
-                <div class="flexbox" id="headlines">
-
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
-                </div>
-                <div class="flexbox" id="featured-video">
-
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x600">ADVERTISEMENT PLACEHOLDER</div>
-                </div>
-                <div class="flexbox" id="leaderboard">
-
-                </div>
-                <div class="flexbox" id="top-plays">
-
+                <div class="flexbox ad300x250" style="margin-top: 0;padding-top: 0;">
+                    <div class="banner_ad300x600" >ADVERTISEMENT PLACEHOLDER</div>
                 </div>
                 <div class="flexbox" id="newsletter">
 
-                </div>
-                <div class="flexbox" id="about">
+                    <form method="post" action="//submit.form" onSubmit="return validateForm();">
+                        <div style="width: 400px;">
+                        </div>
+                        <div style="padding-bottom: 14px;font-size : 18px;">NJBA Newsletter Subscription</div>
+                        <div style="padding-bottom: 14px;">NAME<span style="color: red;"> *</span><br/>
+                            <input type="text" id="data_2"90% name="data_2" style="width : 65%;" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 14px;">EMAIL<span style="color: red;"> *</span><br/>
+                            <input type="text" id="data_4" name="data_4" style="width : 65%;" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 14px;"><input name="skip_Submit" value="SUBSCRIBE" type="submit"/></div>
+                    </form>
+
+                    <script type="text/javascript">
+                        function validateForm() {
+                            if (isEmpty(document.getElementById('data_2').value.trim())) {
+                                alert('NAME is required!');
+                                return false;
+                            }
+                            if (isEmpty(document.getElementById('data_4').value.trim())) {
+                                alert('EMAIL is required!');
+                                return false;
+                            }
+                            if (!validateEmail(document.getElementById('data_4').value.trim())) {
+                                alert('EMAIL must be a valid email address!');
+                                return false;
+                            }
+                            return true;
+                        }
+                        function isEmpty(str) { return (str.length === 0 || !str.trim()); }
+                        function validateEmail(email) {
+                            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
+                            return isEmpty(email) || re.test(email);
+                        }
+                    </script>
 
                 </div>
-                <div class="flexbox" id="awards">
-
+                <div class="flexbox" id="headlines" style="margin-top: 20px;">
+                    <h1>News Headlines</h1>
+                    <hr>
+                    <ul>
+                        <li>
+                            headline #1
+                        </li>
+                        <li>
+                            headline #2
+                        </li>
+                        <li>
+                            headline #3
+                        </li>
+                        <li>
+                            headline #4
+                        </li>
+                        <li>
+                            headline #5
+                        </li>
+                        <li>
+                            headline #6
+                        </li>
+                    </ul>
                 </div>
                 <div class="flexbox ad300x250">
                     <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
+                </div>
+                <div class="flexbox" id="about">
+                    <h1>Behind the Court</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Immo istud quidem, inquam, quo loco quidque, nisi iniquum postulo, arbitratu meo. Quod quidem nobis non saepe contingit. Ait enim se, si uratur, Quam hoc suave! dicturum. </p>
                 </div>
             </div>
         </div>

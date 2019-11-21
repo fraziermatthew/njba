@@ -55,7 +55,7 @@ VerifyDBConnection($connection, DB_DATABASE);
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="scores.php">SCORES <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="scores.php" style="color:yellow !important;"><b>SCORES</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="standings.php">STANDINGS</a>
@@ -301,7 +301,6 @@ VerifyDBConnection($connection, DB_DATABASE);
 </body>
 
 </html>
-
 
 
 <?php

@@ -138,7 +138,7 @@ pid = 1
 season = 1
 seasonCount = 3
 
-numOfSeasons = 148
+numOfSeasons = 27
 numOfTeams = 30
 count = 1
 sid = 1
@@ -150,13 +150,13 @@ with open('data/box_score.csv', mode = 'w') as stat_file:
     # For each game in the pre and reg season
     while count <= numOfSeasons:
 
-        game_pre = pd.read_csv('data/game/season' + str(count) + '.csv', header = None)
+        season_output = pd.read_csv('data/game/season' + str(count) + '.csv', header = None)
 
-        for index in range(len(game_pre)):
-            gameid = game_pre.iloc[index][0]
+        for index in range(len(season_output)):
+            gameid = season_output.iloc[index][0]
 
             # Find out the home team id
-            home = game_pre.iloc[index][4]
+            home = season_output.iloc[index][4]
 
             # Find out IDs for that player
             h_top = (home * 15) * season  # Find out max player ID
@@ -176,7 +176,7 @@ with open('data/box_score.csv', mode = 'w') as stat_file:
                 stat_writer.writerow(stat)
 
             # Find out the away team id
-            away = game_pre.iloc[index][5]
+            away = season_output.iloc[index][5]
 
             a_top = (away * 15) * season  # Find out max player ID
             a_low = a_top - 14  # Find out min player ID
@@ -196,5 +196,5 @@ with open('data/box_score.csv', mode = 'w') as stat_file:
         count += 1
 
         # Increment player roster every 3 years
-        if season % 3 == 0:
+        if count % 3 == 0:
             season += 1

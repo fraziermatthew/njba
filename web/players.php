@@ -67,7 +67,7 @@ VerifyDBConnection($connection, DB_DATABASE);
                         <a class="nav-link" href="stats.php">STATS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="players.php">PLAYERS</a>
+                        <a class="nav-link" href="players.php" style="color:yellow !important;"><b>PLAYERS</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="teams.php">TEAMS</a>
@@ -141,41 +141,44 @@ VerifyDBConnection($connection, DB_DATABASE);
                     ?>
 
 
-
-
-
                 </div>
             </div>
             <div class="col-lg-3" style="padding-right: 5px;">
-                <div class="flexbox" id="headlines">
-
-                </div>
-                <div class="flexbox ad300x250">
+                <div class="flexbox ad300x250" style="padding-top: 0;">
                     <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
                 </div>
                 <div class="flexbox" id="featured-video">
-
+                    <video controls autoplay muted>
+                        <source src="images/vid5.webm" type="video/webm">
+                    </video>
+                </div>
+                <div class="flexbox" id="leaderboard">
+                    <h1>Leaderboard</h1>
+                    <hr>
+                    <ul>
+                        <li>
+                            player #1
+                        </li>
+                        <li>
+                            player #2
+                        </li>
+                        <li>
+                            player #3
+                        </li>
+                        <li>
+                            player #4
+                        </li>
+                        <li>
+                            player #5
+                        </li>
+                    </ul>
+                </div>
+                <div class="flexbox" id="awards">
+                    <h1>Hall of Fame</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Immo istud quidem, inquam, quo loco quidque, nisi iniquum postulo, arbitratu meo. Quod quidem nobis non saepe contingit. Ait enim se, si uratur, Quam hoc suave! dicturum. <mark>Eaedem res maneant alio modo.</mark> <mark>Bonum liberi: misera orbitas.</mark> Sed quid minus probandum quam esse aliquem beatum nec satis beatum? Traditur, inquit, ab Epicuro ratio neglegendi doloris. In quibus doctissimi illi veteres inesse quiddam caeleste et divinum putaverunt. </p>
                 </div>
                 <div class="flexbox ad300x250">
                     <div class="banner_ad300x600">ADVERTISEMENT PLACEHOLDER</div>
-                </div>
-                <div class="flexbox" id="leaderboard">
-
-                </div>
-                <div class="flexbox" id="top-plays">
-
-                </div>
-                <div class="flexbox" id="newsletter">
-
-                </div>
-                <div class="flexbox" id="about">
-
-                </div>
-                <div class="flexbox" id="awards">
-
-                </div>
-                <div class="flexbox ad300x250">
-                    <div class="banner_ad300x250">ADVERTISEMENT PLACEHOLDER</div>
                 </div>
             </div>
         </div>

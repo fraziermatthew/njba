@@ -84,7 +84,7 @@
                                 <a class="nav-link" href="#">TICKETS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="underconstruction.php">SHOP</a>
+                                <a class="nav-link" href="underconstruction.php" style="color:yellow !important;"><b>SHOP</b></a>
                             </li>
                         </ul>
                         <div class="search">
@@ -206,7 +206,7 @@
         </p>
     </div>
     <!--END COPYRIGHT-->
-    <!--        </div>-->
+
 </footer>
 <!--END FOOTER-->
 

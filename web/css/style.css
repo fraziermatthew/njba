@@ -158,7 +158,21 @@ footer hr {
     flex-direction: column;
     display: flex;
 }
-
+.featured-video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid black !important;
+    /*max-height: 500px;*/
+    /*max-width: 300px;*/
+    /*margin-top: 20px;*/
+    /*flex-wrap: wrap;*/
+    /*flex-direction: column;*/
+    /*display: flex;*/
+}
 #headlines ul, #leaderboard ul, #top-plays ul {
     /*margin: 10px;*/
     padding-left: 30px;
@@ -184,8 +198,8 @@ footer hr {
 }
 .center-news {
     border: 1px solid black !important;
-    max-height: 2000px;
-    max-width: 2000px;
+    max-height: 100%;
+    max-width: 100%;
     /*padding-top: 20px;*/
     flex-wrap: wrap;
     flex-direction: column;
@@ -201,6 +215,10 @@ footer hr {
 }
 #featured-video video {
     width: 100%;
+}
+.featured-video video {
+    width: 100%;
+    background-color: white !important;
 }
 .center-news p {
     padding:25px;
@@ -263,7 +281,6 @@ input[type=submit]
     background-color: whitesmoke !important;
     border-radius: 2px;
     border: 1px solid indianred; /* Green */
-    /*box-shadow: 0 2px 16px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.19);*/
     padding: 2px;
     font-size: 13px;
 }
@@ -273,13 +290,6 @@ input[type=submit]
 .center-news td,.center-news  th {
     border: 1px solid gainsboro !important;
 }
-
-/*#view {*/
-/*    background-image: linear-gradient(*/
-/*            rgba(20,20,20, .5),*/
-/*            rgba(20,20,20, .5)),*/
-/*    url('../images/store.png') !important;*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: cover;*/
-/*    background-position: center center;*/
-/*}*/
+.stats {
+    font-size: 12px !important;
+}
