@@ -41,7 +41,7 @@ Launch the Python virutal environment
 
 <br>
 
-#### Addtional Information
+#### Additional Information
 **Payment Mapping**<br>
 Donors  = 1      through 339457<br>
 Sponsor = 339458 through 399999<br>
