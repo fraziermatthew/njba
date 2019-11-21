@@ -17,7 +17,7 @@ Details on the concept of the NJBA league is in the /docs folder:
   - Focused user stories that outline the vision of the UI for the NJBA application.
   
 #### Database Design
-![Physical Model](docs/models/physical-model.png)
+![Physical Model](docs/models/physical-model-revised.png)
 
 
 #### Requirements
