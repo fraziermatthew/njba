@@ -5,9 +5,9 @@ CISC 637 Database Systems<br>
 Fall 2019
 
 ## Folders
-* [Database Design Model Images](/models)
-* [CSV and Images for all Query Plan (Reporting, Analytics, and Optimization)](/Reporting-and-Analytics)
-<br>
+* [Database Design Model Images](models)
+* [CSV and Images for all Query Plan (Reporting, Analytics, and Optimization)](Reporting-and-Analytics)
+
 #### Additional Files
 Details on the concept of the NJBA league is in the /docs folder:
 * [MySQL Workbench Database File](njba.mwb)
